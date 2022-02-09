@@ -167,7 +167,7 @@ INSERT INTO tbl_habitat
 	('short grass, shade, and moat', 50000), 
 	('netted forest atrium', 10000), 
 	('jungle vines and winding branches', 15000),
-	('cliff with shaded cave', 15000)
+	('cliff with shaded a cave', 15000)
 ;
 
 SELECT * FROM tbl_habitat;
