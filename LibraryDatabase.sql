@@ -89,6 +89,7 @@ VALUES
 ('long wind writing', '499 long st', '422-494-9999')
 ;
 
+ -- This is where the insert stopped working. If you want to fix this, this is where to start
 INSERT INTO books (bookTitle, publisherName)
 VALUES
 ('enders game', 'tor books'),
@@ -129,5 +130,46 @@ VALUES
 ;
 
 INSERT INTO bookCopies (numberOfCopies, bookID, branchID)
+VALUES
+(2, 1, 6),
+(2, 2, 5),
+(9, 5, 4),
+(4, 7, 3),
+(3, 2, 2),
+(4, 3, 1),
+(2, 17, 1),
+(4, 19, 2),
+(6, 18, 3),
+(4, 14, 4),
+(3, 13, 5),
+(4, 12, 6),
+(2, 11, 6),
+(4, 10, 5),
+(6, 9, 4),
+(4, 8, 3)
+;
+
+INSERT INTO bookLoans (bookID, branchID, cardNO, dateOut, dateDue)
+VALUES
+(13, 1, 11, 2022-01-01, 2022-01-15),
+(12, 2, 17, 2022-01-01, 2022-01-15),
+(1, 3, 12, 2022-01-01, 2022-01-15),
+(18, 4, 11, 2022-01-01, 2022-01-15),
+(7, 5, 12, 2022-01-01, 2022-01-15),
+(4, 6, 13, 2022-01-01, 2022-01-15),
+(19, 6, 14, 2022-01-01, 2022-01-15),
+(18, 5, 15, 2022-01-01, 2022-01-15),
+(12, 4, 16, 2022-01-01, 2022-01-15),
+(17, 3, 17, 2022-01-01, 2022-01-15),
+(1, 2, 18, 2022-01-01, 2022-01-15)
+;
 
 
+SELECT * FROM ((bookLoans FULL OUTER JOIN borrower ON bookLoans.CardNo = borrower.cardNo) FULL OUTER JOIN books ON bookLoans.bookID = books.bookID)
+
+--This query was requested to get both the entire list of books, and their authors. No connection has been made
+	-- between these two data so this is what I did instead
+SELECT * FROM books, authors;
+
+-- to complete part 4, go to step 351. Because of the time and how late it is, I decided to keep going forward because I 
+	-- wouldn't be able to get help with the state of my system, and I didn't want to just stop here
